@@ -732,9 +732,8 @@ function build_image {
   else
     progress_type=auto
   fi
-  $WINPTY_PREFIX docker build \
+  DOCKER_BUILDKIT=0 $WINPTY_PREFIX docker build \
     -f "$DOCKER_FILE" \
-    --progress $progress_type \
     --build-arg PONGO_VERSION="$PONGO_VERSION" \
     --build-arg http_proxy \
     --build-arg https_proxy \
